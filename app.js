@@ -138,14 +138,9 @@ const state = {
   // dominant eye (explicitly present in source text)
   dominantEye: "Right",
 
-  // flow navigation (Back/Next explicitly present)
-  flowIndex: 0, // within Results flow pages: 0=Rx entry, 1=Brands, 2=Results output
 };
 
-// Results flow pages: we map "Back/Next" to cycle through the relevant tabs
-// The original UI has Back/Next around the calculator; we implement this as moving across tabs.
-const flowTabs = ["results", "brands", "results"]; // practical: Back from Results takes you to Brands; Next from Results also to Brands if needed
-// We'll instead implement Back/Next as moving across state.tabOrder while staying inside CL calculator context:
+// Back/Next move across state.tabOrder:
 function goBack() {
   const i = state.tabOrder.indexOf(state.activeTab);
   setTab(state.tabOrder[Math.max(0, i - 1)]);
@@ -460,7 +455,7 @@ function convertSpherocyl(eye, sphereStep, cylStep, axisStep) {
   let outAxis = null;
   if (isNum(axis)) {
     let a = clamp(Math.round(axis), 1, 180);
-    if (axisStep > 1) a = clamp(Math.round(a / axisStep) * axisStep, 1, 180);
+    if (axisStep > 1) a = clamp(Math.round(a / axisStep) * axisStep, axisStep, 180);
     outAxis = a;
   }
 
@@ -511,6 +506,7 @@ function formatResultBlock(r) {
   lines.push(`  SPH: ${fmtD(r.sph)}`);
   lines.push(`  CYL: ${fmtD(r.cyl)}`);
   lines.push(`  Axis: ${isNum(r.axis) ? `${r.axis}°` : "—"}`);
+  if (isNum(r.add)) lines.push(`  ADD: ${fmtD(r.add)}`);
   return lines;
 }
 
