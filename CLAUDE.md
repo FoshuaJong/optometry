@@ -1,93 +1,108 @@
-# CLAUDE.md — CL Calculator (NZ) Wireframe + Catalogue Plug‑in
+# CLAUDE.md — CL Calculator (NZ) Wireframe + Catalogue Plug-in
 
-## 0) Purpose (read this first)
-This repo is a **static single-page web app** that reproduces the **visible** CL Calculator UI features/actions from the Pocket OD CL Calculator page text (not pixel-perfect styling). It is **reference-only**: never present as medical advice.
+## 0) Purpose
+Static single-page web app reproducing the **visible** CL Calculator UI from PocketOD (https://pocketod.com/#contactlenscalculator). Reference-only — never present output as medical advice. No pixel-perfect clone (IP/trade-dress risk).
 
-Claude Code reads this file at the start of every session; keep it concise and practical. [1](https://code.claude.com/docs/en/claude-directory)
+Claude Code reads this file at the start of every session; keep it concise and practical.
 
 ---
 
 ## 1) Product definition
-### What we’re building
-A client-side web app that includes:
-- Tool sub-nav pages: **All Contact Lenses**, **Vertex Chart**, **Radius Conversion**, **Rx Schedule**, **Brands**, **Results**
-- A Results page containing:
-  - OD/OS Rx entry with **SPH −/+**, **CYL −/+**, **Axis quick 90/180**, **ADD (for MF only)**
-  - **Copy OD → OS**
-  - **Dominant Eye** selector (Right/Left)
-  - **Reset**, **Back**, **Next**
-  - **Send Feedback** (mailto) and **Add to iPhone Home Screen** (modal)
 
-### What we are NOT building (avoid over-engineering)
-- No backend, no accounts, no telemetry.
-- No “pixel-perfect clone” of competitor UI (avoid IP/trade-dress risk).
-- No clinical “recommendations”. Output is a **starting estimate** only.
+### What we're building
+Client-side SPA with:
+- **Top nav:** Contact Lenses | Medications | Clinical Tools
+- **Sub-nav (Contact Lenses section):** CL Calculator | All Contact Lenses | Vertex Chart | Radius Conversion
+- **CL Calculator** is a step-based workflow (progress bar across top of card):
+  1. **Rx Entry** — OD/OS prescription inputs
+  2. **Lens Selection** — brand/option grid filtered by Rx
+  3. **Order Detail** — selected lens parameters + fit summary
+
+### What we are NOT building
+- No backend, accounts, or telemetry.
+- No clinical recommendations — output is a starting estimate only.
+- No pixel-perfect clone of PocketOD styling.
 
 ---
 
-## 2) Acceptance criteria: “feature parity” checklist
-### Global nav items (top bar)
-- [ ] Contact Lenses
-- [ ] Medications
-- [ ] Clinical Tools
-- [ ] CL Calculator (active)
+## 2) Acceptance criteria
 
-### Tool sub-nav tabs (pages)
-- [ ] All Contact Lenses
-- [ ] Vertex Chart
-- [ ] Radius Conversion
-- [ ] Rx Schedule
-- [ ] Brands
-- [ ] Results
+### Top nav
+- [ ] Contact Lenses (active section)
+- [ ] Medications (stub/inactive)
+- [ ] Clinical Tools (stub/inactive)
 
-### Rx entry controls (Results page)
-OD (Right Eye):
-- [ ] SPH input with −/+ step buttons (0.25D default)
-- [ ] CYL input with −/+ step buttons (0.25D default)
-- [ ] Axis input + quick set buttons 90 and 180
-- [ ] ADD input with −/+ step buttons (MF only label)
+### Sub-nav (Contact Lenses)
+- [ ] CL Calculator (step-based, see below)
+- [ ] All Contact Lenses (catalogue browse)
+- [ ] Vertex Chart (conversion table)
+- [ ] Radius Conversion (conversion table)
 
-OS (Left Eye):
-- [ ] SPH input with −/+ step buttons
-- [ ] CYL input with −/+ step buttons
-- [ ] Axis input + quick set buttons 90 and 180
-- [ ] ADD input with −/+ step buttons (MF only label)
+### Step 1 — Rx Entry
+OD and OS sections (collapsible), each with:
+- [ ] SPH input + sign toggle (−/+), step 0.25 D
+- [ ] CYL input + sign toggle (−/+), step 0.25 D
+- [ ] AXIS input + quick-set buttons (90 / 180), range 0–180°
+- [ ] ADD input + sign toggle (MF only label), step 0.25 D
+- [ ] Vertex Distance input (mm)
 
 Cross-eye:
-- [ ] Copy OD → OS
+- [ ] Copy OD → OS button
+- [ ] Clear Rx button (per eye or global)
 
-MF refinement:
-- [ ] Dominant Eye toggle (Right/Left)
+Dominance:
+- [ ] Dominant Eye toggle (OD / OS)
 
-Flow + session:
-- [ ] Reset (clears inputs + selection)
-- [ ] Back navigation (moves to previous tab in tab order)
-- [ ] Next navigation (moves to next tab in tab order)
+### Step 2 — Lens Selection
+- [ ] Option grid (2-col, touch-friendly) showing brand/lens type cards
+- [ ] Each card: icon, title, description, optional count badge
+- [ ] Active/selected state (colored outline + check icon)
+- [ ] Filtered by Rx values from Step 1
 
-Footer/actions:
-- [ ] Disclaimer: “For reference only. Verify…”
-- [ ] Send Feedback button (mailto)
-- [ ] Add to iPhone Home Screen button (opens instructions modal)
+### Step 2 list view — lens result cards
+- [ ] Result count + metadata header
+- [ ] Sort controls
+- [ ] Per-lens card: brand stripe, badges (brand/modality/DK), lens name, specs grid, Select button
+
+### Step 3 — Order Detail
+- [ ] Back button
+- [ ] Lens name + brand label
+- [ ] Fitting guide link (pill button)
+- [ ] Parameter grid (label + value boxes, highlight key params)
+- [ ] Warning note boxes (amber) where relevant
+
+### Global controls (all steps)
+- [ ] Reset button (clears all inputs + selection, top-right of card)
+- [ ] Back / Next navigation buttons (bottom of card)
+- [ ] Progress/steps bar (top of card, shows active step)
+
+### Footer
+- [ ] Disclaimer: "For reference only. Verify all parameters before prescribing."
+- [ ] Send Feedback (mailto link)
+- [ ] Add to iPhone Home Screen (opens modal with instructions)
 
 ---
 
 ## 3) Repo layout (do not rename without updating references)
-- `index.html` — all UI markup; no build step required
+- `index.html` — all UI markup; no build step
 - `styles.css` — styling only
-- `apps.js` — app logic; event handlers; computations; catalogue loading
-- `catalogue.json` — OPTIONAL drop-in data file (same directory). If missing, app runs in “no catalogue” mode.
-- `catalogue.local.json` — gitignored local override; rename/symlink to `catalogue.json` to test locally without committing data.
+- `app.js` — logic, event handlers, computations, catalogue loading
+- `catalogue.json` — optional drop-in data; if missing, app runs in "no catalogue" mode
+- `catalogue.local.json` — gitignored local override (rename to `catalogue.json` to test)
 
-Keep everything runnable by opening `index.html` directly. If fetch() fails due to file:// restrictions, run a simple local server (see Commands). Prefer **no frameworks**.
-
-## 5) Commands
-- `python -m http.server 8080` — local dev server (open http://localhost:8080)
-- `npx serve .` — alternative if Node is available
+Runnable by opening `index.html` directly. If `fetch()` fails (file:// restriction), use local server. **No frameworks.**
 
 ---
 
-## 4) Catalogue plug-in contract (important)
-The app should attempt `fetch("./catalogue.json")`. If it fails, show “No catalogue loaded” but keep the app functional.
+## 4) Commands
+- `python -m http.server 8080` — local dev server → http://localhost:8080
+- `npx serve .` — alternative if Node available
+
+---
+
+## 5) Catalogue plug-in contract
+
+`fetch("./catalogue.json")` on load. Failure → show "No catalogue loaded", app stays functional.
 
 ### Minimal schema (stable)
 ```json
@@ -106,7 +121,7 @@ The app should attempt `fetch("./catalogue.json")`. If it fails, show “No cata
           "availability": {
             "sphereRanges": [
               { "min": -12.0, "max": -6.5, "step": 0.50 },
-              { "min": -6.0, "max": 8.0, "step": 0.25 }
+              { "min": -6.0, "max": 8.0,  "step": 0.25 }
             ],
             "cylValues": [-0.75, -1.25, -1.75, -2.25],
             "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
@@ -116,4 +131,4 @@ The app should attempt `fetch("./catalogue.json")`. If it fails, show “No cata
     }
   ]
 }
-``
+```
