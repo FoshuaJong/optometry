@@ -1,19 +1,400 @@
 {
   "brands": [
     {
-      "id": "example-brand",
-      "name": "Example Brand",
+      "id": "jj-acuvue",
+      "name": "Johnson & Johnson Vision (Acuvue)",
       "lenses": [
         {
-          "id": "example-daily",
-          "name": "Example Daily",
+          "id": "acuvue-moist-1day",
+          "name": "1-Day Acuvue Moist",
           "type": "soft",
-          "notes": "Demo entry. Replace with NZ catalogue data.",
+          "notes": "Daily disposable. HEMA/PVP. Replacement: daily.",
           "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
           "availability": {
             "sphereRanges": [
               { "min": -12.0, "max": -6.5, "step": 0.50 },
-              { "min": -6.0, "max": 8.0, "step": 0.25 }
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "acuvue-moist-1day-astig",
+          "name": "1-Day Acuvue Moist for Astigmatism",
+          "type": "soft",
+          "notes": "Daily toric. BLINK STABILISED design. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -9.0, "max": -3.25, "step": 0.25 },
+              { "min": -3.0, "max":  4.0,  "step": 0.25 }
+            ],
+            "cylValues": [-0.75, -1.25, -1.75, -2.25],
+            "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
+          }
+        },
+        {
+          "id": "acuvue-oasys-2w",
+          "name": "Acuvue Oasys (2-weekly)",
+          "type": "soft",
+          "notes": "Silicone hydrogel. HYDRACLEAR PLUS. Extended wear approved (6 nights). Replacement: 2-weekly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  8.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "acuvue-oasys-astig",
+          "name": "Acuvue Oasys for Astigmatism",
+          "type": "soft",
+          "notes": "2-weekly toric SiHy. HYDRACLEAR PLUS. Replacement: 2-weekly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -9.0, "max": -0.5, "step": 0.25 },
+              { "min":  0.0, "max":  4.0, "step": 0.25 }
+            ],
+            "cylValues": [-0.75, -1.25, -1.75, -2.25],
+            "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
+          }
+        },
+        {
+          "id": "acuvue-oasys-presbyopia",
+          "name": "Acuvue Oasys for Presbyopia",
+          "type": "soft",
+          "notes": "2-weekly MF SiHy. ADD: Low (+0.75–+1.25), Mid (+1.50–+1.75), High (+2.00–+2.50). Replacement: 2-weekly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -9.0, "max": -6.5, "step": 0.50 },
+              { "min": -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "acuvue-vita",
+          "name": "Acuvue Vita",
+          "type": "soft",
+          "notes": "Monthly SiHy. HydraMax technology. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  8.0, "step": 0.25 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "alcon",
+      "name": "Alcon",
+      "lenses": [
+        {
+          "id": "dailies-total1",
+          "name": "Dailies Total1",
+          "type": "soft",
+          "notes": "Water-gradient daily SiHy. Surface water content ~100%. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "dailies-total1-mf",
+          "name": "Dailies Total1 Multifocal",
+          "type": "soft",
+          "notes": "Water-gradient daily MF. ADD: Low (+1.00D), Med (+1.50D), High (+2.00D), Max (+2.50D). Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "dailies-aquacomfort-plus",
+          "name": "Dailies AquaComfort Plus",
+          "type": "soft",
+          "notes": "Daily. Triple-action moisture blink-activated. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "air-optix-plus-hydraglyde",
+          "name": "Air Optix plus HydraGlyde",
+          "type": "soft",
+          "notes": "Monthly SiHy. SmartShield + HydraGlyde surface layer. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  8.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "air-optix-astig",
+          "name": "Air Optix for Astigmatism",
+          "type": "soft",
+          "notes": "Monthly toric SiHy. Precision Balance 8|4 stabilisation. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -0.5, "step": 0.25 },
+              { "min":   0.0, "max":  6.0, "step": 0.25 }
+            ],
+            "cylValues": [-0.75, -1.25, -1.75, -2.25, -2.75],
+            "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
+          }
+        },
+        {
+          "id": "air-optix-mf",
+          "name": "Air Optix plus HydraGlyde Multifocal",
+          "type": "soft",
+          "notes": "Monthly MF SiHy. ADD: Low (+1.00D), Med (+2.00D), High (+2.50D). Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "coopervision",
+      "name": "CooperVision",
+      "lenses": [
+        {
+          "id": "myday-daily",
+          "name": "MyDay Daily Disposable",
+          "type": "soft",
+          "notes": "Smart Silicone daily SiHy. High Dk/t (100). Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  5.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "myday-toric",
+          "name": "MyDay Toric",
+          "type": "soft",
+          "notes": "Daily toric SiHy. Auto-Align Design. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -9.0, "max": -0.25, "step": 0.25 },
+              { "min":  0.0, "max":  4.0,  "step": 0.25 }
+            ],
+            "cylValues": [-0.75, -1.25, -1.75, -2.25],
+            "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
+          }
+        },
+        {
+          "id": "biofinity-monthly",
+          "name": "Biofinity",
+          "type": "soft",
+          "notes": "Monthly SiHy. Aquaform Technology. Extended wear approved (7 nights). Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  8.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "biofinity-toric",
+          "name": "Biofinity Toric",
+          "type": "soft",
+          "notes": "Monthly toric SiHy. Optimised Toric Lens Geometry. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -0.25, "step": 0.25 },
+              { "min":   0.0, "max":  8.0,  "step": 0.25 }
+            ],
+            "cylValues": [-0.75, -1.25, -1.75, -2.25, -2.75],
+            "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
+          }
+        },
+        {
+          "id": "biofinity-mf",
+          "name": "Biofinity Multifocal",
+          "type": "soft",
+          "notes": "Monthly MF SiHy. D (distance-dominant) and N (near-dominant) designs. ADD: +1.00 to +4.00 in 0.50D steps. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "proclear-1day",
+          "name": "Proclear 1 Day",
+          "type": "soft",
+          "notes": "Daily. PC Technology (phosphorylcholine). Good choice for mild dry eye. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "avaira-vitality",
+          "name": "Avaira Vitality",
+          "type": "soft",
+          "notes": "Monthly SiHy. Aquaform Technology. Value alternative to Biofinity. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  8.0, "step": 0.25 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bausch-lomb",
+      "name": "Bausch + Lomb",
+      "lenses": [
+        {
+          "id": "ultra-monthly",
+          "name": "Bausch + Lomb ULTRA",
+          "type": "soft",
+          "notes": "Monthly SiHy. MoistureSeal technology. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "ultra-astigmatism",
+          "name": "Bausch + Lomb ULTRA for Astigmatism",
+          "type": "soft",
+          "notes": "Monthly toric SiHy. MoistureSeal + OpticAlign Design. Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -9.0, "max": -0.25, "step": 0.25 },
+              { "min":  0.0, "max":  6.0,  "step": 0.25 }
+            ],
+            "cylValues": [-0.75, -1.25, -1.75, -2.25],
+            "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
+          }
+        },
+        {
+          "id": "ultra-presbyopia",
+          "name": "Bausch + Lomb ULTRA for Presbyopia",
+          "type": "soft",
+          "notes": "Monthly MF SiHy. 3-Zone Progressive Design. ADD: Low (+0.75–+1.50), Med (+1.75–+2.25), High (+2.50). Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "soflens-daily",
+          "name": "SofLens Daily Disposable",
+          "type": "soft",
+          "notes": "Economy daily. Hilafilcon B material. Good for occasional/backup wear. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -9.0, "max": -0.5, "step": 0.25 },
+              { "min":  0.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "purevision2",
+          "name": "PureVision 2",
+          "type": "soft",
+          "notes": "Monthly SiHy. Aspheric optics. Extended wear approved (30 nights). Replacement: monthly.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -12.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  6.0, "step": 0.25 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mark-ennovy",
+      "name": "Mark'Ennovy",
+      "lenses": [
+        {
+          "id": "contact-1-day-elite",
+          "name": "Contact 1 Day Elite",
+          "type": "soft",
+          "notes": "Custom-parameter daily SiHy. Wide SPH/CYL range for complex Rx. Any axis 1–180. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 1 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -20.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max": 10.0, "step": 0.25 }
+            ],
+            "cylValues": [-0.25,-0.50,-0.75,-1.00,-1.25,-1.50,-1.75,-2.00,-2.25,-2.50,-2.75,-3.00,-3.50,-4.00,-4.50,-5.00,-5.50,-6.00]
+          }
+        }
+      ]
+    },
+    {
+      "id": "seed-gelflex",
+      "name": "SEED (Gelflex NZ)",
+      "lenses": [
+        {
+          "id": "seed-1daypur",
+          "name": "SEED 1dayPur",
+          "type": "soft",
+          "notes": "Japanese daily disposable. Smooth Gradient Moisture technology. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -10.0, "max": -6.5, "step": 0.50 },
+              { "min":  -6.0, "max":  4.0, "step": 0.25 }
+            ]
+          }
+        },
+        {
+          "id": "seed-1daypur-astig",
+          "name": "SEED 1dayPur for Astigmatism",
+          "type": "soft",
+          "notes": "Japanese daily toric. Replacement: daily.",
+          "rounding": { "sphereStep": 0.25, "cylStep": 0.25, "axisStep": 10 },
+          "availability": {
+            "sphereRanges": [
+              { "min": -6.0, "max": -0.25, "step": 0.25 },
+              { "min":  0.0, "max":  2.0,  "step": 0.25 }
             ],
             "cylValues": [-0.75, -1.25, -1.75, -2.25],
             "axisValues": [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180]
